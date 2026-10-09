@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Golden-Path - Login</title>
+
+
+    <!-- =====================================================
+         FONTES
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Press+Start+2P&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           VARIÁVEIS
+        ===================================================== */
+
+        :root {
+
+            --madeira-escura: #42210B;
+            --madeira-profunda: #2A1408;
+            --madeira-media: #6F3513;
+            --madeira-clara: #A95D25;
+
+            --dourado: #FFD45A;
+            --dourado-claro: #FFE99A;
+
+            --verde: #79B82A;
+            --verde-claro: #9DDA45;
+            --verde-escuro: #3D6815;
+
+            --creme: #FFF4D7;
+            --branco: #FFFFFF;
+
+            --fonte-pixel: "Press Start 2P", monospace;
+            --fonte-texto: "Nunito", sans-serif;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        html,
+        body {
+
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: #182C18;
+
+            font-family: var(--fonte-texto);
+
+            overflow-x: hidden;
+        }
+
+
+        button,
+        input {
+
+            font-family: inherit;
+        }
+
+
+        /* =====================================================
+           CONTAINER PRINCIPAL
+        ===================================================== */
+
+        .main-container {
+
+            width: 100%;
+            min-height: 100vh;
+
+            display: flex;
+
+            background: #211107;
+        }
+
+
+        /* =====================================================
+           LADO ESQUERDO
+           GRANDE TRONCO
+        ===================================================== */
+
+        .info-panel {
+
+            position: relative;
+
+            flex: 1;
+
+            min-height: 100vh;
+
+            padding: 35px 45px 25px;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+
+            border-right: 8px solid #251107;
+
+            background:
+
+                radial-gradient(
+                    ellipse at 30% 20%,
+                    rgba(184, 102, 40, 0.55),
+                    transparent 45%
+                ),
+
+                radial-gradient(
+                    ellipse at 80% 80%,
+                    rgba(42, 16, 5, 0.7),
+                    transparent 55%
+                ),
+
+                linear-gradient(
+                    90deg,
+                    #43200C 0%,
+                    #713713 18%,
+                    #8F481B 42%,
+                    #713713 67%,
+                    #3A1B0A 100%
+                );
+        }
+
+
+        /* =====================================================
+           TEXTURA DO TRONCO
+        ===================================================== */
+
+        .info-panel::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.28;
+
+            background:
+
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 35px,
+                    rgba(255, 197, 103, 0.10) 37px,
+                    transparent 42px
+                ),
+
+                repeating-linear-gradient(
+                    5deg,
+                    transparent 0px,
+                    transparent 70px,
+                    rgba(35, 12, 3, 0.15) 73px
+                );
+        }
+
+
+        /* =====================================================
+           ANÉIS DA MADEIRA
+        ===================================================== */
+
+        .info-panel::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            left: -300px;
+            bottom: -350px;
+
+            border-radius: 50%;
+
+            border: 4px solid rgba(36, 14, 4, 0.28);
+
+            box-shadow:
+
+                0 0 0 35px rgba(36, 14, 4, 0.10),
+                0 0 0 75px rgba(36, 14, 4, 0.08),
+                0 0 0 115px rgba(36, 14, 4, 0.06);
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           FOLHAS DECORATIVAS DO TRONCO
+           Estáticas, discretas e separadas
+        ===================================================== */
+
+        .leaf {
+
+            position: absolute;
+
+            width: 95px;
+            height: 80px;
+
+            z-index: 1;
+
+            pointer-events: none;
+
+            opacity: 0.95;
+
+            background: transparent;
+
+            filter:
+                drop-shadow(
+                    2px 2px 0
+                    rgba(35, 55, 12, 0.45)
+                );
+        }
+
+
+        /* =====================================================
+           FOLHA 1
+           Superior esquerdo
+        ===================================================== */
+
+        .leaf-1 {
+
+            top: 25px;
+            left: 18px;
+
+            transform:
+                rotate(-18deg);
+        }
+
+
+        /* =====================================================
+           FOLHA 2
+           Superior direito
+        ===================================================== */
+
+        .leaf-2 {
+
+            top: 115px;
+            right: 20px;
+
+            transform:
+                rotate(28deg)
+                scaleX(-1);
+        }
+
+
+        /* =====================================================
+           FOLHA 3
+           Inferior esquerdo
+        ===================================================== */
+
+        .leaf-3 {
+
+            bottom: 70px;
+            left: 25px;
+
+            transform:
+                rotate(22deg)
+                scale(0.9);
+        }
+
+
+        /* =====================================================
+           FOLHA 4
+           Inferior direito
+        ===================================================== */
+
+        .leaf-4 {
+
+            bottom: 22px;
+            right: 28px;
+
+            transform:
+                rotate(-25deg)
+                scaleX(-1)
+                scale(0.9);
+        }
+
+
+        /* =====================================================
+           FOLHAS INDIVIDUAIS
+        ===================================================== */
+
+        .leaf::before,
+        .leaf::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 38px;
+            height: 21px;
+
+            border-radius:
+                100% 0 100% 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #315D18 0%,
+                    #4F8C20 45%,
+                    #78B82F 75%,
+                    #9BCF45 100%
+                );
+
+            border:
+                2px solid #254512;
+
+            box-shadow:
+                inset -3px -2px 0
+                rgba(35, 75, 16, 0.25),
+
+                2px 2px 0
+                rgba(35, 20, 5, 0.35);
+        }
+
+
+        /* =====================================================
+           PRIMEIRA FOLHA DO CONJUNTO
+        ===================================================== */
+
+        .leaf::before {
+
+            top: 12px;
+            left: 10px;
+
+            transform:
+                rotate(-32deg);
+        }
+
+
+        /* =====================================================
+           SEGUNDA FOLHA DO CONJUNTO
+        ===================================================== */
+
+        .leaf::after {
+
+            top: 43px;
+            left: 45px;
+
+            transform:
+                rotate(27deg)
+                scale(0.85);
+        }
+
+
+        /* =====================================================
+           VARIAÇÕES PARA NÃO FICAREM TODAS IGUAIS
+        ===================================================== */
+
+
+        /* Folha 2 */
+
+        .leaf-2::before {
+
+            transform:
+                rotate(25deg)
+                scale(0.9);
+        }
+
+
+        .leaf-2::after {
+
+            transform:
+                rotate(-30deg)
+                scale(0.8);
+        }
+
+
+        /* Folha 3 */
+
+        .leaf-3::before {
+
+            transform:
+                rotate(-48deg)
+                scale(0.85);
+        }
+
+
+        .leaf-3::after {
+
+            transform:
+                rotate(18deg)
+                scale(0.95);
+        }
+
+
+        /* Folha 4 */
+
+        .leaf-4::before {
+
+            transform:
+                rotate(35deg)
+                scale(0.9);
+        }
+
+
+        .leaf-4::after {
+
+            transform:
+                rotate(-35deg)
+                scale(0.82);
+        }
+
+
+        /* =====================================================
+           TÍTULO GOLDEN-PATH
+           Estilo pixel-art igual aos cards
+           Brilho somente ao passar o mouse
+        ===================================================== */
+
+        .brand-area h1 {
+
+            position: relative;
+
+            font-family: var(--fonte-pixel);
+
+            font-size:
+                clamp(
+                    1.25rem,
+                    2vw,
+                    2rem
+                );
+
+            line-height: 1.4;
+
+            letter-spacing: 1px;
+
+            color: #FFE99A;
+
+            text-shadow:
+                3px 3px 0 #5B270B,
+                5px 5px 0 #241005;
+
+            transition:
+                transform 0.2s ease,
+                filter 0.2s ease,
+                text-shadow 0.2s ease;
+        }
+
+
+        /* =====================================================
+           BRILHO AO PASSAR O MOUSE
+        ===================================================== */
+
+        .brand-area h1:hover {
+
+            transform:
+                translateY(-3px);
+
+            filter:
+                brightness(1.12);
+
+            text-shadow:
+                3px 3px 0 #5B270B,
+                5px 5px 0 #241005,
+
+                0 0 4px #FFF4B8,
+                0 0 8px #FFE99A,
+
+                0 0 14px
+                rgba(255, 212, 90, 0.95),
+
+                0 0 24px
+                rgba(255, 212, 90, 0.75);
+        }
+
+
+        /* =====================================================
+           ÁREA DA MARCA
+        ===================================================== */
+
+        .brand-area {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+        }
+
+
+        .brand-sign {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding:
+                13px 28px 17px;
+
+            min-width: 350px;
+
+            background:
+
+                linear-gradient(
+                    180deg,
+                    #A85B24 0%,
+                    #813E16 48%,
+                    #54260D 100%
+                );
+
+            border:
+                4px solid #2B1306;
+
+            border-radius: 14px;
+
+            box-shadow:
+
+                0 7px 0 #241005,
+
+                inset 0 2px 0
+                rgba(255,255,255,0.18),
+
+                inset 0 -6px 0
+                rgba(34,12,3,0.25);
+        }
+
+
+        /* Folhinhas CSS na placa */
+
+        .brand-sign::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 17px;
+            height: 9px;
+
+            left: 13px;
+            bottom: 10px;
+
+            background:
+                var(--verde);
+
+            border:
+                2px solid var(--verde-escuro);
+
+            border-radius:
+                100% 0 100% 0;
+
+            transform:
+                rotate(-25deg);
+        }
+
+
+        .brand-sign::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 17px;
+            height: 9px;
+
+            right: 13px;
+            top: 8px;
+
+            background:
+                var(--verde);
+
+            border:
+                2px solid var(--verde-escuro);
+
+            border-radius:
+                0 100% 0 100%;
+
+            transform:
+                rotate(25deg);
+        }
+
+
+        .brand-area h1 {
+
+            position: relative;
+
+            font-family:
+                var(--fonte-pixel);
+
+            font-size:
+                clamp(
+                    1.25rem,
+                    2vw,
+                    2rem
+                );
+
+            line-height: 1.4;
+
+            letter-spacing: 1px;
+
+            color:
+                var(--dourado-claro);
+
+            text-shadow:
+
+                3px 3px 0 #5B270B,
+                5px 5px 0 #241005;
+        }
+
+
+        .brand-subtitle {
+
+            margin-top: 11px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.82rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                2px;
+
+            color:
+                var(--creme);
+        }
+
+
+        /* =====================================================
+           VÍDEO / PREVIEW DO GOLDEN-PATH
+
+           FORMATO DA REFERÊNCIA:
+           772 x 318 px
+
+           Proporção:
+           772 / 318 = aproximadamente 2,427:1
+        ===================================================== */
+
+        .game-preview {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+
+            aspect-ratio: 772 / 318;
+
+            height: auto;
+
+            margin:
+                0 auto 22px;
+
+            overflow: hidden;
+
+            border:
+                5px solid #291306;
+
+            border-radius:
+                22px;
+
+            background:
+                #111;
+
+            box-shadow:
+
+                0 7px 0 #241005,
+
+                inset 0 0 30px
+                rgba(0, 0, 0, 0.75);
+        }
+
+
+        /* =====================================================
+           VÍDEO
+        ===================================================== */
+
+        .game-preview video {
+
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit:
+                cover;
+
+            object-position:
+                center;
+
+            display:
+                block;
+
+            pointer-events:
+                none;
+        }
+
+
+        /* =====================================================
+           CAMADA DE ILUMINAÇÃO
+           Mantém o visual do projeto
+        ===================================================== */
+
+        .game-preview::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 2;
+
+            pointer-events: none;
+
+            background:
+
+                linear-gradient(
+                    115deg,
+                    rgba(255, 215, 70, 0.10),
+                    transparent 40%,
+                    rgba(255, 255, 255, 0.035)
+                );
+        }
+
+
+        /* =====================================================
+           EFEITO PIXEL / SCANLINES
+        ===================================================== */
+
+        .game-preview::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 3;
+
+            pointer-events: none;
+
+            background:
+
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(255, 255, 255, 0.025) 0px,
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px,
+                    transparent 4px
+                );
+        }
+
+
+        /* =====================================================
+           TEXTO DE APRESENTAÇÃO
+        ===================================================== */
+
+        .intro-text {
+
+            position: relative;
+
+            z-index: 2;
+
+            text-align:
+                center;
+
+            margin-bottom:
+                20px;
+
+            padding:
+                0 15px;
+        }
+
+
+        .intro-label {
+
+            display:
+                inline-block;
+
+            margin-bottom:
+                8px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.75rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                1.7px;
+
+            color:
+                var(--dourado-claro);
+        }
+
+
+        .intro-text p {
+
+            max-width:
+                720px;
+
+            margin:
+                0 auto;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                1rem;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.5;
+
+            color:
+                #FFFFFF;
+
+            text-shadow:
+
+                1px 2px 0
+                rgba(38, 14, 3, 0.9);
+        }
+
+
+        /* =====================================================
+           CARDS
+           ALUNO + PROFESSOR
+        ===================================================== */
+
+        .features {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                16px;
+
+            margin-top:
+                3px;
+        }
+
+
+        .feature-card {
+
+            position:
+                relative;
+
+            min-height:
+                135px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                15px;
+
+            padding:
+                17px;
+
+            overflow:
+                hidden;
+
+            cursor:
+                default;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(165, 88, 31, 0.98),
+                    rgba(101, 43, 13, 0.98)
+                );
+
+            border:
+                3px solid #2B1306;
+
+            border-radius:
+                15px;
+
+            box-shadow:
+
+                0 6px 0 #261005,
+
+                inset 0 1px 0
+                rgba(255,255,255,0.12);
+
+            transition:
+
+                transform 0.25s ease,
+                filter 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .feature-card::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                140px;
+
+            height:
+                140px;
+
+            top:
+                -75px;
+
+            left:
+                -80px;
+
+            background:
+                rgba(255, 221, 104, 0.20);
+
+            border-radius:
+                50%;
+
+            opacity:
+                0;
+
+            transition:
+                opacity 0.25s ease,
+                transform 0.35s ease;
+
+            pointer-events:
+                none;
+        }
+
+
+        .feature-card::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            left:
+                0;
+
+            right:
+                0;
+
+            top:
+                0;
+
+            height:
+                3px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--dourado),
+                    transparent
+                );
+
+            opacity:
+                0;
+
+            transition:
+                opacity 0.25s ease;
+
+            pointer-events:
+                none;
+        }
+
+
+        .feature-card:hover {
+
+            transform:
+                translateY(-6px)
+                scale(1.015);
+
+            filter:
+                brightness(1.13);
+
+            box-shadow:
+
+                0 9px 0 #261005,
+
+                0 0 18px
+                rgba(255, 212, 90, 0.25),
+
+                inset 0 1px 0
+                rgba(255,255,255,0.18);
+        }
+
+
+        .feature-card:hover::before {
+
+            opacity:
+                1;
+
+            transform:
+                translate(30px, 30px);
+        }
+
+
+        .feature-card:hover::after {
+
+            opacity:
+                1;
+        }
+
+
+        /* =====================================================
+           ÍCONE VISUAL
+           SEM EMOJI
+        ===================================================== */
+
+        .feature-icon {
+
+            position:
+                relative;
+
+            flex-shrink:
+                0;
+
+            width:
+                58px;
+
+            height:
+                58px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #FFE98A,
+                    #F4BA32
+                );
+
+            border:
+                3px solid #2B1306;
+
+            border-radius:
+                11px;
+
+            box-shadow:
+
+                0 4px 0 #2B1306;
+
+            transition:
+
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .feature-card:hover .feature-icon {
+
+            transform:
+                translateY(-2px)
+                rotate(-2deg);
+
+            box-shadow:
+
+                0 5px 0 #2B1306,
+
+                0 0 12px
+                rgba(255, 226, 103, 0.55);
+        }
+
+
+        /* =====================================================
+           ÍCONE DO ALUNO
+           CONTROLE PIXELADO
+        ===================================================== */
+
+        .student-icon::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                32px;
+
+            height:
+                20px;
+
+            background:
+                #55301A;
+
+            border:
+                3px solid #2B1306;
+
+            border-radius:
+                7px;
+
+            box-shadow:
+                inset 0 0 0 2px #8E5227;
+        }
+
+
+        .student-icon::after {
+
+            content:
+                "+";
+
+            position:
+                absolute;
+
+            left:
+                14px;
+
+            top:
+                14px;
+
+            font-family:
+                var(--fonte-pixel);
+
+            font-size:
+                12px;
+
+            color:
+                var(--dourado-claro);
+
+            text-shadow:
+                1px 1px 0 #2B1306;
+        }
+
+
+        /* =====================================================
+           ÍCONE DO PROFESSOR
+           GRÁFICO EM CSS
+        ===================================================== */
+
+        .teacher-icon {
+
+            display:
+                flex;
+
+            align-items:
+                flex-end;
+
+            justify-content:
+                center;
+
+            gap:
+                4px;
+
+            padding-bottom:
+                11px;
+        }
+
+
+        .teacher-icon::before {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                7px;
+
+            height:
+                18px;
+
+            left:
+                14px;
+
+            bottom:
+                12px;
+
+            background:
+                #3D6815;
+
+            border:
+                2px solid #2B1306;
+
+            box-shadow:
+                11px -7px 0 #71AF28,
+                22px -14px 0 #4D861A;
+        }
+
+
+        .teacher-icon::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                34px;
+
+            height:
+                3px;
+
+            left:
+                11px;
+
+            bottom:
+                10px;
+
+            background:
+                #2B1306;
+        }
+
+
+        /* =====================================================
+           CONTEÚDO DOS CARDS
+        ===================================================== */
+
+        .feature-content {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            flex:
+                1;
+        }
+
+
+        .feature-content h3 {
+
+            margin:
+                0 0 8px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                1.05rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                0.6px;
+
+            color:
+                #FFE99A;
+
+            text-shadow:
+                1px 2px 0 #54260D;
+        }
+
+
+        .feature-content p {
+
+            margin:
+                0;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.84rem;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.45;
+
+            color:
+                #FFFFFF;
+        }
+
+
+        /* =====================================================
+           RODAPÉ
+        ===================================================== */
+
+        .panel-footer {
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+            margin-top:
+                auto;
+
+            padding-top:
+                15px;
+
+            text-align:
+                center;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.67rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                1.7px;
+
+            color:
+                var(--dourado-claro);
+        }
+
+
+        .panel-footer span {
+
+            margin:
+                0 8px;
+
+            color:
+                #FFD45A;
+        }
+
+
+        /* =====================================================
+           PAINEL DIREITO
+           MANTIDO
+        ===================================================== */
+
+        .login-panel {
+
+            position:
+                relative;
+
+            flex:
+                1.2;
+
+            min-height:
+                100vh;
+
+            padding:
+                40px 55px;
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            justify-content:
+                center;
+
+            background:
+
+                linear-gradient(
+                    rgba(7, 35, 14, 0.46),
+                    rgba(28, 40, 10, 0.45)
+                ),
+
+                url("imagem02.png");
+
+            background-size:
+                cover;
+
+            background-position:
+                center;
+        }
+
+
+        /* =====================================================
+           NAVEGAÇÃO DO LOGIN
+        ===================================================== */
+
+        .login-nav {
+
+            display:
+                flex;
+
+            margin-bottom:
+                20px;
+        }
+
+
+        .login-nav span.active {
+
+            padding:
+                10px 14px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.72rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                0.7px;
+
+            color:
+                #FFFFFF;
+
+            background:
+                #71AF28;
+
+            border:
+                3px solid #2F4D0D;
+
+            border-radius:
+                9px;
+
+            box-shadow:
+                0 4px 0 #31520D;
+        }
+
+
+        /* =====================================================
+           BOAS-VINDAS
+        ===================================================== */
+
+        .welcome-text {
+
+            padding:
+                27px;
+
+            background:
+                rgba(18, 43, 8, 0.83);
+
+            border:
+                4px solid #FFAE59;
+
+            border-radius:
+                18px;
+
+            margin-bottom:
+                28px;
+
+            box-shadow:
+                0 6px 0 rgba(45, 27, 5, 0.8);
+        }
+
+
+        .welcome-text h1 {
+
+            margin-bottom:
+                10px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                1.65rem;
+
+            font-weight:
+                900;
+
+            color:
+                var(--dourado);
+
+            text-shadow:
+                2px 3px 0 #3D6815;
+        }
+
+
+        .welcome-text p {
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.95rem;
+
+            font-weight:
+                700;
+
+            line-height:
+                1.5;
+
+            color:
+                #FFFFFF;
+        }
+
+
+        /* =====================================================
+           BOTÕES DE PERFIL
+        ===================================================== */
+
+        .profile-btn {
+
+            width:
+                100%;
+
+            min-height:
+                92px;
+
+            margin-bottom:
+                20px;
+
+            padding:
+                18px 20px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            text-align:
+                left;
+
+            cursor:
+                pointer;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #F7A653,
+                    #D9792E
+                );
+
+            border:
+                5px solid #42210B;
+
+            border-radius:
+                20px;
+
+            box-shadow:
+                0 8px 0 #723400;
+
+            transition:
+
+                transform 0.15s ease,
+                filter 0.15s ease;
+        }
+
+
+        .profile-btn:hover {
+
+            filter:
+                brightness(1.08);
+
+            transform:
+                translateY(-2px);
+        }
+
+
+        .profile-btn:active {
+
+            transform:
+                translateY(5px);
+
+            box-shadow:
+                0 3px 0 #723400;
+        }
+
+
+        .profile-btn .text span {
+
+            display:
+                block;
+
+            margin-bottom:
+                6px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.75rem;
+
+            font-weight:
+                800;
+
+            color:
+                #42210B;
+        }
+
+
+        .profile-btn strong {
+
+            display:
+                block;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                1.05rem;
+
+            font-weight:
+                900;
+
+            letter-spacing:
+                0.5px;
+
+            color:
+                #FFFFFF;
+
+            text-shadow:
+                2px 2px 0 #69330E;
+        }
+
+
+        .profile-btn .arrow {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            flex-shrink:
+                0;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                1.2rem;
+
+            font-weight:
+                900;
+
+            color:
+                #FFFFFF;
+
+            background:
+                #71AF28;
+
+            border:
+                3px solid #42210B;
+
+            border-radius:
+                9px;
+
+            box-shadow:
+                0 3px 0 #31520D;
+        }
+
+
+        /* =====================================================
+           FORMULÁRIO DE LOGIN
+        ===================================================== */
+
+        .login-form {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                13px;
+        }
+
+
+        .login-form input {
+
+            width:
+                100%;
+
+            padding:
+                17px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.95rem;
+
+            font-weight:
+                700;
+
+            color:
+                #42210B;
+
+            background:
+                #FFFDF5;
+
+            border:
+                4px solid #42210B;
+
+            border-radius:
+                13px;
+
+            outline:
+                none;
+
+            transition:
+
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        .login-form input:focus {
+
+            border-color:
+                #71AF28;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(113,175,40,0.25);
+        }
+
+
+        .login-form input::placeholder {
+
+            color:
+                #73563F;
+
+            opacity:
+                1;
+        }
+
+
+        /* =====================================================
+           MENSAGEM DE CAMPOS VAZIOS
+           Aparece dentro da própria página
+        ===================================================== */
+
+        .login-error-message {
+
+            display:
+                none;
+
+            width:
+                100%;
+
+            margin-top:
+                -3px;
+
+            padding:
+                10px 12px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.85rem;
+
+            font-weight:
+                800;
+
+            text-align:
+                center;
+
+            color:
+                #8B2E2E;
+
+            background:
+                #FFF1F1;
+
+            border:
+                3px solid #8B2E2E;
+
+            border-radius:
+                9px;
+
+            box-sizing:
+                border-box;
+        }
+
+
+        .login-access-btn {
+
+            margin-top:
+                5px;
+
+            padding:
+                17px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.9rem;
+
+            font-weight:
+                900;
+
+            color:
+                #FFFFFF;
+
+            background:
+                #71AF28;
+
+            border:
+                4px solid #42210B;
+
+            border-radius:
+                14px;
+
+            cursor:
+                pointer;
+
+            box-shadow:
+                0 6px 0 #31520D;
+
+            transition:
+                transform 0.15s ease;
+        }
+
+
+        .login-access-btn:hover {
+
+            filter:
+                brightness(1.08);
+        }
+
+
+        .login-access-btn:active {
+
+            transform:
+                translateY(4px);
+
+            box-shadow:
+                0 2px 0 #31520D;
+        }
+
+
+        .back-btn {
+
+            margin-top:
+                12px;
+
+            padding:
+                8px;
+
+            font-family:
+                var(--fonte-texto);
+
+            font-size:
+                0.8rem;
+
+            font-weight:
+                800;
+
+            color:
+                #FFFFFF;
+
+            background:
+                transparent;
+
+            border:
+                none;
+
+            cursor:
+                pointer;
+
+            text-decoration:
+                underline;
+
+            text-shadow:
+                2px 2px 0 #18220C;
+        }
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .main-container {
+
+                flex-direction:
+                    column;
+            }
+
+
+            .info-panel {
+
+                min-height:
+                    auto;
+
+                border-right:
+                    none;
+
+                border-bottom:
+                    8px solid #251107;
+
+                padding:
+                    30px;
+            }
+
+
+            .login-panel {
+
+                min-height:
+                    100vh;
+
+                padding:
+                    35px 30px;
+            }
+
+
+            /*
+             * A proporção 772 x 318 é mantida
+             * automaticamente pelo aspect-ratio.
+             */
+        }
+
+
+        @media (max-width: 650px) {
+
+            .info-panel {
+
+                padding:
+                    25px 20px;
+            }
+
+
+            .brand-sign {
+
+                min-width:
+                    auto;
+
+                width:
+                    100%;
+
+                padding:
+                    12px 15px;
+            }
+
+
+            .brand-area h1 {
+
+                font-size:
+                    1rem;
+            }
+
+
+            .brand-subtitle {
+
+                font-size:
+                    0.65rem;
+            }
+
+
+            /*
+             * A proporção do vídeo continua sendo
+             * 772 x 318 mesmo em telas menores.
+             */
+
+
+            .features {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .feature-card {
+
+                min-height:
+                    125px;
+            }
+
+
+            .feature-content h3 {
+
+                font-size:
+                    1rem;
+            }
+
+
+            .feature-content p {
+
+                font-size:
+                    0.82rem;
+            }
+
+
+            .login-panel {
+
+                padding:
+                    25px 20px;
+            }
+
+
+            .welcome-text {
+
+                padding:
+                    21px;
+            }
+
+
+            .welcome-text h1 {
+
+                font-size:
+                    1.3rem;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             LADO ESQUERDO
+        ================================================== -->
+
+        <section class="info-panel">
+
+
+            <!-- Folhagem decorativa do tronco -->
+
+            <span class="leaf leaf-1"></span>
+            <span class="leaf leaf-2"></span>
+            <span class="leaf leaf-3"></span>
+            <span class="leaf leaf-4"></span>
+
+            <span class="branch branch-1"></span>
+            <span class="branch branch-2"></span>
+
+
+            <!-- Marca -->
+
+            <div class="brand-area">
+
+                <div class="brand-sign">
+
+                    <h1>GOLDEN-PATH</h1>
+
+                </div>
+
+
+                <span class="brand-subtitle">
+
+                    UMA EXPERIÊNCIA EDUCACIONAL GAMIFICADA
+
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 VÍDEO DO GOLDEN-PATH
+                 Formato proporcional à referência 772 x 318
+            ================================================== -->
+
+            <div class="game-preview">
+
+                <video
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="auto"
+                >
+
+                    <source
+                        src="video_login.mp4(1).mp4"
+                        type="video/mp4"
+                    >
+
+                    Seu navegador não suporta vídeos HTML5.
+
+                </video>
+
+            </div>
+
+
+            <!-- Apresentação -->
+
+            <div class="intro-text">
+
+                <span class="intro-label">
+
+                    SUA JORNADA COMEÇA AQUI
+
+                </span>
+
+
+                <p>
+
+                    Uma experiência educacional divertida e tecnológica,
+                    criada para conectar cada aluno à sua própria jornada
+                    e aproximar toda a turma.
+
+                </p>
+
+            </div>
+
+
+            <!-- Funcionalidades -->
+
+            <div class="features">
+
+
+                <!-- ALUNO -->
+
+                <div class="feature-card">
+
+                    <div class="feature-icon student-icon"></div>
+
+
+                    <div class="feature-content">
+
+                        <h3>
+                            PARA O ALUNO
+                        </h3>
+
+
+                        <p>
+
+                            Atividades, desafios, missões,
+                            conquistas e evolução na jornada.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PROFESSOR -->
+
+                <div class="feature-card">
+
+                    <div class="feature-icon teacher-icon"></div>
+
+
+                    <div class="feature-content">
+
+                        <h3>
+                            PARA O PROFESSOR
+                        </h3>
+
+
+                        <p>
+
+                            Informações, desempenho e
+                            acompanhamento da turma.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Rodapé -->
+
+            <div class="panel-footer">
+
+                <span>✦</span>
+
+                APRENDA • EVOLUA • CONQUISTE
+
+                <span>✦</span>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             LADO DIREITO
+             NÃO ALTERADO
+        ================================================== -->
+
+        <section class="login-panel">
+
+
+            <div class="header-login">
+
+                <div class="login-nav">
+
+                    <span class="active">
+
+                        ESCOLHA SEU PERFIL
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="welcome-text">
+
+                <h1>
+                    Olá, Bem-vindo!
+                </h1>
+
+
+                <p>
+
+                    Escolha abaixo um perfil para acessar
+                    o Golden-Path.
+
+                </p>
+
+            </div>
+
+
+            <div class="profile-options">
+
+
+                <!-- ESTUDANTE -->
+
+                <button class="profile-btn">
+
+                    <div class="text">
+
+                        <span>
+                            SOU
+                        </span>
+
+                        <strong>
+                            ESTUDANTE
+                        </strong>
+
+                    </div>
+
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- PROFESSOR -->
+
+                <button class="profile-btn">
+
+                    <div class="text">
+
+                        <span>
+                            SOU
+                        </span>
+
+                        <strong>
+                            PROFESSOR
+                        </strong>
+
+                    </div>
+
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+
+                const botoesPerfil =
+                    document.querySelectorAll(
+                        ".profile-btn"
+                    );
+
+
+                const areaConteudo =
+                    document.querySelector(
+                        ".login-panel"
+                    );
+
+
+                botoesPerfil.forEach(
+                    botao => {
+
+
+                        botao.addEventListener(
+                            "click",
+                            () => {
+
+
+                                const perfilEscolhido =
+                                    botao
+                                    .querySelector("strong")
+                                    .textContent
+                                    .trim();
+
+
+                                areaConteudo.innerHTML = `
+
+                                    <div class="header-login">
+
+                                        <div class="login-nav">
+
+                                            <span class="active">
+
+                                                ENTRAR COMO:
+                                                ${perfilEscolhido}
+
+                                            </span>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="welcome-text">
+
+                                        <h1>
+                                            Quase lá!
+                                        </h1>
+
+
+                                        <p>
+
+                                            Digite seus dados para entrar
+                                            no Golden-Path.
+
+                                        </p>
+
+                                    </div>
+
+
+                                    <div class="login-form">
+
+
+                                        <input
+                                            type="hidden"
+                                            id="perfil_logado"
+                                            value="${perfilEscolhido}"
+                                        >
+
+
+                                        <input
+                                            type="text"
+                                            id="usuario"
+                                            placeholder="${
+                                                perfilEscolhido === "PROFESSOR"
+                                                ? "DIGITE SEU CPF"
+                                                : "DIGITE SEU RA"
+                                            }"
+                                        >
+
+
+                                        <input
+                                            type="password"
+                                            id="senha"
+                                            placeholder="DIGITE SUA SENHA"
+                                        >
+
+
+                                        <div
+                                            id="loginError"
+                                            class="login-error-message"
+                                        >
+                                            Preencha os campos para continuar!
+                                        </div>
+
+
+                                        <button
+                                            class="login-access-btn"
+                                            onclick="validarAcesso()"
+                                        >
+
+                                            ACESSAR GOLDEN-PATH →
+
+                                        </button>
+
+
+                                        <button
+                                            class="back-btn"
+                                            onclick="window.location.reload()"
+                                        >
+
+                                            ← Voltar para seleção de perfil
+
+                                        </button>
+
+
+                                    </div>
+
+                                `;
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+
+
+        /* =====================================================
+           VALIDAÇÃO DO LOGIN
+        ===================================================== */
+
+        async function validarAcesso() {
+
+
+            const user =
+                document
+                .getElementById("usuario")
+                .value
+                .trim();
+
+
+            const senha =
+                document
+                .getElementById("senha")
+                .value;
+
+
+            const perfil =
+                document
+                .getElementById("perfil_logado")
+                .value;
+
+
+            /* Verifica se os campos foram preenchidos */
+
+            const mensagemErro =
+                document.getElementById("loginError");
+
+
+            if (!user || !senha) {
+
+                mensagemErro.style.display =
+                    "block";
+
+                return;
+            }
+
+
+            mensagemErro.style.display =
+                "none";
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+                        "/login",
+                        {
+
+                            method:
+                                "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+
+                                    user:
+                                        user,
+
+                                    senha:
+                                        senha,
+
+                                    tipo:
+                                        perfil
+
+                                })
+
+                        }
+                    );
+
+
+                const dados =
+                    await response.json();
+
+
+                /* LOGIN REALIZADO */
+
+                if (dados.success) {
+
+
+                    alert(
+                        "Conexão estabelecida! Bem-vindo, "
+                        + dados.nome
+                    );
+
+
+                    /*
+                     * O servidor informa
+                     * para qual página
+                     * o usuário deve ir.
+                     */
+
+                    window.location.href =
+                        dados.redirect;
+
+
+                } else {
+
+
+                    /* LOGIN NEGADO */
+
+                    alert(
+                        "❌ Erro: "
+                        + dados.message
+                    );
+
+                }
+
+
+            } catch (error) {
+
+
+                console.error(error);
+
+
+                alert(
+                    "Servidor offline. Verifique o terminal!"
+                );
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
