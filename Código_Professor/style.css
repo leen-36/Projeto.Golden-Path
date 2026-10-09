@@ -1,0 +1,1125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+
+    --brown-dark: #24150f;
+    --brown: #4a281b;
+    --wood: #70432b;
+    --wood-light: #a66b3e;
+
+    --gold: #f1c75b;
+    --green: #8bc34a;
+    --green-dark: #416b35;
+
+    --pink: #e98bb5;
+    --pink-dark: #a94e79;
+
+    --cream: #f8e4b0;
+
+    --line: #c18b4b;
+
+}
+
+* {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #4d3524 0%,
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #17110d,
+            #302015 50%,
+            #17110d
+        );
+
+    color: var(--cream);
+
+    font-family: 'Press Start 2P', monospace;
+
+    padding: 30px 15px;
+
+    image-rendering: pixelated;
+
+}
+
+.app {
+
+    width: 100%;
+    max-width: 1250px;
+    margin: auto;
+
+}
+
+
+/* ==========================================
+   TOPO
+========================================== */
+
+.topo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 35px;
+
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+.logo-tree {
+
+    font-size: 48px;
+
+    filter: drop-shadow(3px 3px 0 #000);
+
+}
+
+.logo h1 {
+
+    color: var(--gold);
+
+    font-size: clamp(14px, 2vw, 24px);
+
+    line-height: 1.8;
+
+    text-shadow: 3px 3px #000;
+
+}
+
+.mini-title {
+
+    color: var(--gold);
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    line-height: 1.8;
+
+}
+
+.subtitle {
+
+    color: #d8bd8e;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+}
+
+.online {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #1b2b1a;
+
+    border: 3px solid var(--green-dark);
+
+    box-shadow: 4px 4px #000;
+
+    padding: 14px;
+
+}
+
+.online-dot {
+
+    width: 14px;
+
+    height: 14px;
+
+    background: var(--green);
+
+    box-shadow: 0 0 8px var(--green);
+
+}
+
+.online strong {
+
+    display: block;
+
+    color: var(--green);
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+}
+
+.online small {
+
+    display: block;
+
+    color: #d8bd8e;
+
+    font-size: 7px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.dashboard {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(280px, 0.8fr);
+
+    gap: 30px;
+
+    align-items: start;
+
+}
+
+
+/* ==========================================
+   ABA DE MADEIRA ABERTA
+========================================== */
+
+.wood-board {
+
+    position: relative;
+
+    background:
+
+        repeating-linear-gradient(
+            0deg,
+            transparent 0px,
+            transparent 20px,
+            rgba(45, 20, 10, 0.2) 21px,
+            transparent 23px
+        ),
+
+        linear-gradient(
+            145deg,
+            #805032,
+            #4b291b 55%,
+            #6e4028
+        );
+
+    border: 8px solid #2c180f;
+
+    outline: 3px solid var(--line);
+
+    box-shadow:
+
+        0 0 0 7px #1b100b,
+
+        10px 12px 0 #000;
+
+    padding: 30px 25px 25px;
+
+}
+
+
+/* Detalhes decorativos */
+
+.wood-board::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    width: 13px;
+
+    height: 13px;
+
+    background: var(--gold);
+
+    box-shadow:
+
+        0 18px #2a170e,
+
+        0 36px #c58a4d;
+
+    opacity: 0.7;
+
+}
+
+.wood-board::after {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    width: 13px;
+
+    height: 13px;
+
+    background: var(--green);
+
+    box-shadow:
+
+        0 -18px #2a170e,
+
+        0 -36px #c58a4d;
+
+    opacity: 0.7;
+
+}
+
+.top-decoration {
+
+    text-align: center;
+
+    color: var(--green);
+
+    font-size: 18px;
+
+    margin-bottom: 15px;
+
+}
+
+.board-title {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+.board-title h2 {
+
+    color: var(--gold);
+
+    font-size: clamp(18px, 3vw, 30px);
+
+    margin: 12px 0;
+
+    text-shadow: 3px 3px #32180e;
+
+}
+
+.board-title p:last-child {
+
+    color: #d7b68b;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+}
+
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.info-card {
+
+    background: rgba(42, 22, 13, 0.85);
+
+    border: 3px solid #b77a42;
+
+    padding: 20px;
+
+    margin-bottom: 18px;
+
+    box-shadow: 4px 4px 0 #2a170d;
+
+}
+
+.user-card {
+
+    border-color: var(--pink-dark);
+
+}
+
+.green-card {
+
+    border-color: var(--green-dark);
+
+}
+
+.pink-card {
+
+    border-color: var(--pink-dark);
+
+}
+
+.gold-card {
+
+    border-color: #b77a42;
+
+}
+
+.card-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom: 2px solid rgba(241, 199, 91, 0.4);
+
+    padding-bottom: 15px;
+
+    margin-bottom: 18px;
+
+}
+
+.card-heading h3 {
+
+    color: var(--gold);
+
+    font-size: clamp(9px, 1.3vw, 14px);
+
+    line-height: 1.7;
+
+}
+
+.card-icon {
+
+    font-size: 21px;
+
+}
+
+.pink-heading h3 {
+
+    color: var(--pink);
+
+}
+
+.green-heading h3 {
+
+    color: var(--green);
+
+}
+
+.gold-heading h3 {
+
+    color: var(--gold);
+
+}
+
+
+/* ==========================================
+   USUÁRIO
+========================================== */
+
+.user-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+.avatar {
+
+    display: grid;
+
+    place-items: center;
+
+    width: 75px;
+
+    height: 75px;
+
+    flex-shrink: 0;
+
+    border: 4px solid var(--pink);
+
+    background: #372018;
+
+    font-size: 37px;
+
+    box-shadow: 4px 4px #1b100b;
+
+}
+
+.user-details p {
+
+    margin-bottom: 13px;
+
+}
+
+.user-details span {
+
+    display: block;
+
+    color: #d7aa77;
+
+    font-size: 8px;
+
+    margin-bottom: 7px;
+
+    line-height: 1.8;
+
+}
+
+.user-details strong {
+
+    display: block;
+
+    color: var(--cream);
+
+    font-size: 11px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================
+   MÉTRICAS
+========================================== */
+
+.metric-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.metric-label {
+
+    color: var(--cream);
+
+    font-size: 10px;
+
+    line-height: 1.8;
+
+}
+
+.metric-description {
+
+    color: #d7b68b;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+    margin-top: 8px;
+
+}
+
+.metric-value {
+
+    font-size: clamp(22px, 3vw, 32px);
+
+    flex-shrink: 0;
+
+}
+
+.green-text {
+
+    color: var(--green);
+
+}
+
+.pink-text {
+
+    color: var(--pink);
+
+}
+
+.gold-text {
+
+    color: var(--gold);
+
+}
+
+
+/* BARRA DE PRESENÇA */
+
+.progress {
+
+    width: 100%;
+
+    height: 18px;
+
+    background: #28150e;
+
+    border: 3px solid #1b100b;
+
+    margin-top: 18px;
+
+}
+
+.progress-fill {
+
+    height: 100%;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            #729e42 0px,
+            #729e42 12px,
+            #a6d35d 12px,
+            #a6d35d 15px
+        );
+
+    transition: width 0.4s ease;
+
+}
+
+
+/* ==========================================
+   RODAPÉ DA MADEIRA
+========================================== */
+
+.board-footer {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: center;
+
+    color: var(--gold);
+
+    font-size: 8px;
+
+    line-height: 2;
+
+    margin-top: 25px;
+
+}
+
+.board-footer span {
+
+    color: var(--green);
+
+    font-size: 18px;
+
+}
+
+
+/* ==========================================
+   PAINEL LATERAL
+========================================== */
+
+.side-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+}
+
+.summary-box {
+
+    background: #2b1b15;
+
+    border: 5px solid #5b3926;
+
+    outline: 3px solid var(--gold);
+
+    box-shadow: 8px 8px #000;
+
+    padding: 28px 22px;
+
+}
+
+.side-title {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+.side-title h2 {
+
+    color: var(--cream);
+
+    font-size: clamp(14px, 2vw, 20px);
+
+    margin: 15px 0;
+
+    line-height: 1.8;
+
+}
+
+.side-title p:last-child {
+
+    color: #bda17c;
+
+    font-size: 9px;
+
+    line-height: 1.8;
+
+}
+
+
+/* ==========================================
+   GRÁFICO DE PIZZA
+========================================== */
+
+.pie-chart {
+
+    width: min(260px, 80vw);
+
+    aspect-ratio: 1;
+
+    margin: 25px auto;
+
+    border-radius: 50%;
+
+    background: conic-gradient(
+
+        var(--green) 0% 42%,
+
+        var(--pink) 42% 65%,
+
+        var(--gold) 65% 83%,
+
+        var(--wood-light) 83% 100%
+
+    );
+
+    border: 6px solid #1b100b;
+
+    position: relative;
+
+    box-shadow: 0 0 0 3px #c18b4b;
+
+}
+
+.pie-center {
+
+    position: absolute;
+
+    inset: 23%;
+
+    border-radius: 50%;
+
+    background: #2b1b15;
+
+    border: 4px solid #5b3926;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    gap: 12px;
+
+}
+
+.pie-center strong {
+
+    color: var(--gold);
+
+    font-size: clamp(17px, 2.4vw, 25px);
+
+}
+
+.pie-center span {
+
+    color: #d7b68b;
+
+    font-size: 8px;
+
+}
+
+
+/* ==========================================
+   LEGENDA
+========================================== */
+
+.legend {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+
+    margin-top: 25px;
+
+}
+
+.legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 9px;
+
+    color: var(--cream);
+
+}
+
+.legend-item strong {
+
+    margin-left: auto;
+
+    color: var(--gold);
+
+}
+
+.legend-color {
+
+    width: 16px;
+
+    height: 16px;
+
+    border: 2px solid #1b100b;
+
+    flex-shrink: 0;
+
+}
+
+.legend-color.green {
+
+    background: var(--green);
+
+}
+
+.legend-color.pink {
+
+    background: var(--pink);
+
+}
+
+.legend-color.gold {
+
+    background: var(--gold);
+
+}
+
+.legend-color.brown {
+
+    background: var(--wood-light);
+
+}
+
+
+/* ==========================================
+   FRASE
+========================================== */
+
+.side-message {
+
+    display: flex;
+
+    gap: 12px;
+
+    background: #38231a;
+
+    border: 2px solid #6b4730;
+
+    padding: 15px;
+
+    margin-top: 28px;
+
+}
+
+.side-message span {
+
+    font-size: 18px;
+
+}
+
+.side-message p {
+
+    color: #d7b68b;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+}
+
+
+/* ==========================================
+   MENU
+========================================== */
+
+.menu {
+
+    background: #2b1b15;
+
+    border: 4px solid #5b3926;
+
+    padding: 20px;
+
+    box-shadow: 6px 6px #000;
+
+}
+
+.menu h3 {
+
+    color: var(--gold);
+
+    font-size: 11px;
+
+    margin-bottom: 18px;
+
+    line-height: 1.8;
+
+}
+
+.menu-item {
+
+    width: 100%;
+
+    display: block;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    font-size: 9px;
+
+    color: var(--cream);
+
+    background: #3b251a;
+
+    border: 2px solid #6b4730;
+
+    padding: 15px 12px;
+
+    margin-top: 10px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+.menu-item.active {
+
+    background: #5b3926;
+
+    border-color: var(--gold);
+
+    color: var(--gold);
+
+}
+
+.menu-item:hover {
+
+    border-color: var(--pink);
+
+    color: var(--pink);
+
+}
+
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.update-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: #38231a;
+
+    border: 3px solid #6b4730;
+
+    padding: 15px;
+
+    box-shadow: 4px 4px #000;
+
+}
+
+.update-box span {
+
+    color: var(--green);
+
+    font-size: 18px;
+
+}
+
+.update-box p {
+
+    color: #d7b68b;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+}
+
+
+/* ==========================================
+   RODAPÉ
+========================================== */
+
+.main-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+
+    color: #bda17c;
+
+    font-size: 8px;
+
+    line-height: 2;
+
+}
+
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 850px) {
+
+    .dashboard {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .summary-box {
+
+        box-shadow: 6px 6px #000;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    body {
+
+        padding: 20px 12px;
+
+    }
+
+    .wood-board {
+
+        padding: 22px 14px;
+
+        border-width: 5px;
+
+    }
+
+    .info-card {
+
+        padding: 15px 12px;
+
+    }
+
+    .card-heading h3 {
+
+        font-size: 9px;
+
+    }
+
+    .metric-label {
+
+        font-size: 8px;
+
+    }
+
+    .metric-description {
+
+        font-size: 7px;
+
+    }
+
+    .user-content {
+
+        gap: 12px;
+
+    }
+
+    .avatar {
+
+        width: 60px;
+
+        height: 60px;
+
+        font-size: 28px;
+
+    }
+
+    .user-details strong {
+
+        font-size: 9px;
+
+    }
+
+    .board-title h2 {
+
+        font-size: 17px;
+
+    }
+
+}

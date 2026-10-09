@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sala do Futuro — Aventura do Aluno</title>
+  <link rel="stylesheet" href="aluno.css">
+  <script src="aluno.js" defer></script>
+</head>
+<body>
+  <main class="jogo">
+    <header class="cabecalho">
+      <div>
+        <span class="marca">✦ SALA DO FUTURO</span>
+        <h1>Aventura do Aluno</h1>
+      </div>
+
+      <div class="perfil">
+        <span class="avatar">🐿️</span>
+        <div>
+          <strong id="nomeTopo">Leen_mistica</strong>
+          <small id="turmaTopo">3º Ano — Técnico</small>
+        </div>
+      </div>
+    </header>
+
+    <section class="cena" aria-label="Encontro com o esquilo na floresta">
+      <div class="vinheta"></div>
+
+      <div class="arvore">
+        <div class="buraco">
+          <div class="esquilo" id="esquilo" role="img"
+               aria-label="Esquilo dentro do buraco da árvore">
+            <span class="orelhas">•</span>
+            <span class="corpo">🐿️</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="interacao">
+        <p class="instrucao">O que vamos fazer?</p>
+
+        <button class="botao-jogo" id="verDados">
+          <span class="icone">📜</span>
+          <span>
+            <strong>Visualizar dados</strong>
+            <small>Consultar informações escolares</small>
+          </span>
+          <span class="seta">›</span>
+        </button>
+
+        <button class="botao-jogo" id="alimentarPet">
+          <span class="icone">🌰</span>
+          <span>
+            <strong>Alimentar o pet</strong>
+            <small id="textoAlimentar">Oferecer uma noz ao esquilo</small>
+          </span>
+          <span class="seta">›</span>
+        </button>
+
+        <p class="mensagem" id="mensagem" role="status" aria-live="polite"></p>
+      </div>
+
+      <section class="painel-dados" id="painelDados"
+               role="dialog" aria-modal="true"
+               aria-labelledby="tituloDados" hidden>
+        <button class="fechar" id="fecharDados"
+                aria-label="Fechar informações">×</button>
+
+        <div class="tronco-dados">
+          <span class="mao mao-esquerda">✋</span>
+          <span class="mao mao-direita">✋</span>
+
+          <div class="conteudo-tronco">
+            <span class="subtitulo">✦ MEU REGISTRO ESCOLAR ✦</span>
+            <h2 id="tituloDados">Informações de Leen</h2>
+
+            <div class="dado">
+              <span>Aluno</span>
+              <strong id="nomeAluno">Leen_mistica</strong>
+            </div>
+
+            <div class="dado">
+              <span>Turma</span>
+              <strong id="turmaAluno">3º Ano — Técnico</strong>
+            </div>
+
+            <div class="dado">
+              <span>Matrícula</span>
+              <strong id="matriculaAluno">2025001</strong>
+            </div>
+
+            <div class="dado">
+              <span>Presença</span>
+              <strong id="presencaValor">92%</strong>
+              <div class="barra">
+                <span id="barraPresenca"></span>
+              </div>
+            </div>
+
+            <div class="dado">
+              <span>Tarefas pendentes</span>
+              <strong id="tarefasValor">6</strong>
+            </div>
+
+            <div class="dado">
+              <span>Notificações não lidas</span>
+              <strong id="notificacoesValor">126</strong>
+            </div>
+
+            <div class="dado">
+              <span>Média geral</span>
+              <strong id="mediaValor">9,0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="efeito-nozes" id="efeitoNozes" aria-hidden="true">🌰</div>
+    </section>
+
+    <footer class="rodape">✦ Explore • Cuide • Aprenda ✦</footer>
+  </main>
+</body>
+</html>
